@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Company</td>
+      <td>Reporting Date</td>
+      <td>Fiscal Quarter</td>
+      <td>EPS forecast</td>
+      <td>Last year's EPS</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @earnings.each do |earning| %>
+      <tr>
+        <td><%=earning.id%></td>
+        <td><%=earning.company.name%></td>
+        <td><%=earning.reporting_date%></td>
+        <td><%=earning.fiscal_quarter%></td>
+        <td><%=earning.eps_forecast%></td>
+        <td><%=earning.last_year_eps%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
