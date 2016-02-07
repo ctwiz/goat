@@ -1,4 +1,7 @@
-     <tr>
+      <% l_e = earning.last_year_eps.to_i %>
+      <% f_e = earning.eps_forecast.to_i %>
+
+      <tr>
         <td><%=earning.id%></td>
         <td><%=earning.reporting_date.strftime("%F")%></td>
         <td><%=earning.fiscal_quarter%></td>
@@ -12,6 +15,20 @@
           <% elsif earning.last_year_eps.to_i < earning.eps_forecast.to_i %>
             <div class="green up"></div>
           <% end %>
+        </td>
+        <td style="text-align: right">
+          <% if earning.down? %>
+            <span class="red">
+          <% elsif earning.nochange? %>
+            <span class="grey">
+          <% elsif earning.up? %>
+            <span class="green">
+          <% end %>
+            <% begin %>
+                <%=(Math.sqrt((f_e)*(f_e) + (l_e)*(l_e))).round(2)%>
+            <% rescue %>
+            <% end %>
+            </span>
         </td>
         <td><%=earning.updated_at.in_time_zone("Pacific Time (US & Canada)").strftime("%F")%></td>
       </tr>
