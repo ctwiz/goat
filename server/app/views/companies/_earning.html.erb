@@ -11,7 +11,7 @@
           <% if earning.last_year_eps.to_i > earning.eps_forecast.to_i %>
             <div class="red down"></div>
           <% elsif earning.last_year_eps.to_i == earning.eps_forecast.to_i %>
-            <div class="yellow nochange"></div>
+            <div class="grey nochange"></div>
           <% elsif earning.last_year_eps.to_i < earning.eps_forecast.to_i %>
             <div class="green up"></div>
           <% end %>
