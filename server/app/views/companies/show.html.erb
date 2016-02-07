@@ -1,0 +1,31 @@
+<table class="companies">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Symbol</td>
+      <td>Market Cap</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%=render "companies/company.html.erb", company: @company%>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Reporting Date</td>
+      <td>Fiscal Quarter</td>
+      <td>Last year's EPS</td>
+      <td>EPS forecast</td>
+      <td>Forecast suggestion</td>
+      <td>Last Updated</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @company.earnings.each do |earning| %>
+    <%=render "companies/earning.html.erb", earning: earning %>
+  <% end %>
+  </tbody>
+</table>

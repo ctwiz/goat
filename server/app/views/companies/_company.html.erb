@@ -1,18 +1,6 @@
-<table class="companies">
-  <thead>
-    <tr>
-      <td>Name</td>
-      <td>Symbol</td>
-      <td>Market Cap</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @companies.each do |company| %>
       <tr>
         <td><%=link_to company.name, company_path(company) %></td>
         <td><%=company.stock_symbol %></td>
         <td class="market_cap"><%=number_to_human(company.market_cap).tr('illion', '')%></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+

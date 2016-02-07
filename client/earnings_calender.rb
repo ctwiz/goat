@@ -138,6 +138,7 @@ class Goat
                 puts "#{m["company_name"]} added."
               end
             end
+            @driver.quit
           end
         end
       end

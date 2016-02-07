@@ -1,0 +1,18 @@
+     <tr>
+        <td><%=earning.id%></td>
+        <td><%=earning.reporting_date.strftime("%F")%></td>
+        <td><%=earning.fiscal_quarter%></td>
+        <td><%=earning.last_year_eps%></td>
+        <td><%=earning.eps_forecast%></td>
+        <td>
+          <% if earning.last_year_eps.to_i > earning.eps_forecast.to_i %>
+            <div class="red down"></div>
+          <% elsif earning.last_year_eps.to_i == earning.eps_forecast.to_i %>
+            <div class="yellow nochange"></div>
+          <% elsif earning.last_year_eps.to_i < earning.eps_forecast.to_i %>
+            <div class="green up"></div>
+          <% end %>
+        </td>
+        <td><%=earning.updated_at.in_time_zone("Pacific Time (US & Canada)").strftime("%F")%></td>
+      </tr>
+
