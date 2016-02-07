@@ -1,5 +1,5 @@
 class EarningsController < ApplicationController
   def index
-    @earnings = Earnings.all
+    @earnings = Earning.all
   end
 end

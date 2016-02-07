@@ -1,3 +1,12 @@
+<div class="pull-left">
 <%=link_to "companies", companies_path %>
 -
 <%=link_to "earnings", earnings_path %>
+</div>
+<div class="pull-right">
+  UTC: <%=Time.now.getutc%>
+  -
+  Eastern (-0500): <%=Time.now.in_time_zone("Eastern Time (US & Canada)")%>
+  -
+  Pacific (-0800): <%=Time.now.in_time_zone("Pacific Time (US & Canada)")%>
+</div>

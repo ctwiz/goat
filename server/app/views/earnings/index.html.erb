@@ -7,6 +7,7 @@
       <td>Fiscal Quarter</td>
       <td>EPS forecast</td>
       <td>Last year's EPS</td>
+      <td>Last Updated</td>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
         <td><%=earning.fiscal_quarter%></td>
         <td><%=earning.eps_forecast%></td>
         <td><%=earning.last_year_eps%></td>
+        <td><%=earning.updated_at.in_time_zone("Pacific Time (US & Canada)")%></td>
       </tr>
     <% end %>
   </tbody>
