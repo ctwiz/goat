@@ -9,7 +9,14 @@
   <tbody>
     <% @companies.each do |company| %>
       <tr>
-        <td><%=link_to company.name, company_path(company) %></td>
+        <td>
+          <%=link_to company.name, company_path(company) %>
+          <br/>
+          <% begin %>
+            Sector: <%=company.industry.sector.name %> Industry: <%=company.industry.name%>
+          <% rescue => e %>
+          <% end %>
+        </td>
         <td><%=company.stock_symbol %></td>
         <td class="market_cap"><%=number_to_human(company.market_cap).tr('illion', '')%></td>
       </tr>

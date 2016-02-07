@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   post '/api/earnings/create', to: "api/earnings#create"
+  post '/api/companies/:company_id/classification', to: "api/companies#classification"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

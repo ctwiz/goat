@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206035839) do
+ActiveRecord::Schema.define(version: 20160207074813) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20160206035839) do
     t.string   "market_cap"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "company_to_industries", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "industry_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "earnings", force: :cascade do |t|
@@ -31,6 +38,39 @@ ActiveRecord::Schema.define(version: 20160206035839) do
     t.integer  "last_year_eps"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "industries", force: :cascade do |t|
+    t.integer  "sector_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "overviews", force: :cascade do |t|
+    t.integer  "company_id"
+    t.string   "source"
+    t.integer  "open"
+    t.integer  "range_hi"
+    t.integer  "range_lo"
+    t.integer  "f2_wk_hi"
+    t.integer  "f2_wk_lo"
+    t.integer  "market_cap"
+    t.integer  "p_e"
+    t.integer  "div"
+    t.integer  "yield"
+    t.integer  "eps"
+    t.integer  "shares"
+    t.integer  "beta"
+    t.integer  "inst_own"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sectors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

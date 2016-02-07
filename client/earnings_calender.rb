@@ -6,7 +6,7 @@ require "uri"
 require 'date'
 
 
-class Goat
+class Earnings_calendar
   def initialize
     start
   end
@@ -146,4 +146,4 @@ class Goat
   end
 end
 
-Goat.new
+Earnings_calendar.new
