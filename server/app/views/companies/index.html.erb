@@ -11,11 +11,14 @@
       <tr>
         <td>
           <%=link_to company.name, company_path(company) %>
-          <br/>
-          <% begin %>
-            Sector: <%=company.industry.sector.name %> Industry: <%=company.industry.name%>
-          <% rescue => e %>
-          <% end %>
+          <div style="font-size: 10pt;">
+            <% begin %>
+              Sector: <%=link_to company.industry.sector.name, sector_path(company.industry.sector) %> <br/>
+              Industry: <%=link_to company.industry.name, sector_industry_path(company.industry.sector, company.industry)%>
+            <% rescue => e %>
+              <%=e%>
+            <% end %>
+          </div>
         </td>
         <td><%=company.stock_symbol %></td>
         <td class="market_cap"><%=number_to_human(company.market_cap).tr('illion', '')%></td>

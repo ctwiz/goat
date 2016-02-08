@@ -2,5 +2,17 @@
         <td><%=link_to company.name, company_path(company) %></td>
         <td><%=company.stock_symbol %></td>
         <td class="market_cap"><%=number_to_human(company.market_cap).tr('illion', '')%></td>
+        <td>
+          <% begin %>
+            <%=company.industry.sector.name%>
+          <% rescue => e %>
+          <% end %>
+        </td>
+        <td>
+          <% begin %>
+            <%=company.industry.name %>
+          <% rescue => e %>
+          <% end %>
+        </td>
       </tr>
 

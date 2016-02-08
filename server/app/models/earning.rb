@@ -1,5 +1,6 @@
 class Earning < ActiveRecord::Base
   belongs_to :company
+  
 
   def up?
     if self.last_year_eps.to_i < self.eps_forecast.to_i

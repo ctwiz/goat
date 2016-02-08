@@ -1,0 +1,14 @@
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sectors.each do |sector| %>
+      <tr>
+        <td><%=link_to sector.name, sector_path(sector) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

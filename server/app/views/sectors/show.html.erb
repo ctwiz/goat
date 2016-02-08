@@ -1,0 +1,27 @@
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Industry Count</td>
+    <td>Company Count</td>
+  </tr>
+  <tr>
+    <td><%=@sector.name %></td>
+    <td><%=@industries.count %></td>
+    <td><%=@companies.count %></td>
+  </tr>
+</table>
+
+<h3>Industries</h3>
+
+<table>
+  <tr>
+    <td>Name</td>
+  </tr>
+  <% @industries.each do |industry| %>
+    <tr>
+      <td><%=link_to industry.name, sector_industry_path(@sector, industry)%>
+    </tr>
+  <% end %>
+</table>
+
+<%=render "shared/company_list" %>

@@ -5,10 +5,19 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'companies#index'
 
+  get '/earnings/diff', to: "earnings#diff"
+  get '/earnings/diff_mcap', to: "earnings#diff_mcap"
   resources :earnings do
   end
 
   resources :companies do
+  end
+
+  resources :sectors do
+    get '/diff', to: "sectors#diff"
+    get '/diff_mcap', to: "sectors#diff_mcap"
+    resources :industries do
+    end
   end
 
   post '/api/earnings/create', to: "api/earnings#create"

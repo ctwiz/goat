@@ -4,6 +4,8 @@
       <td>Name</td>
       <td>Symbol</td>
       <td>Market Cap</td>
+      <td>Sector</td>
+      <td>Industry</td>
     </tr>
   </thead>
   <tbody>
@@ -11,21 +13,30 @@
   </tbody>
 </table>
 
+<div>
+  Views: <%=link_to "Google", "https://www.google.com/finance?q=#{@company.stock_symbol}", target: "_blank" %>,
+         <%=link_to "Yahoo", "http://finance.yahoo.com/q?s=#{@company.stock_symbol}", target: "_blank" %>
+         <%=link_to "Reuters", "http://www.reuters.com/finance/stocks/overview?symbol=#{@company.stock_symbol}", target: "_blank" %>
+         <%=link_to "Daily Finance", "https://www.dailyfinance.com/quote/jump?exchange-input=&ticker-input=#{@company.stock_symbol}", target: "_blank" %>
+<div>
+
 <table>
   <thead>
     <tr>
       <td>ID</td>
-      <td>Reporting Date</td>
-      <td>Fiscal Quarter</td>
+      <td>Company</td>
       <td>Last year's EPS</td>
       <td>EPS forecast</td>
-      <td>Forecast suggestion</td>
+      <td>Diff</td>
+      <td></td>
       <td>Magnitude</td>
+      <td>Reporting Date</td>
+      <td>Fiscal Quarter</td>
       <td>Last Updated</td>
     </tr>
   </thead>
   <tbody>
-  <% @company.earnings.each do |earning| %>
+  <% @earnings.each do |earning| %>
     <%=render "companies/earning.html.erb", earning: earning %>
   <% end %>
   </tbody>

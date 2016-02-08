@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Sector</td>
+    <td>Companies Count</td>
+  </tr>
+  <tr>
+    <td><%=@industry.name%></td>
+    <td><%=link_to @industry.sector.name, sector_path(@industry.sector) %></td>
+    <td><%=@companies.count %></td>
+  </tr>
+</table>
+
+<%=render "shared/company_list" %>
